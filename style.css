@@ -1,0 +1,415 @@
+:root {
+  --color-accent: #0078d4;
+  --font: "Poppins", sans-serif;
+  --header-height: 70px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* NAV 
+header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+*/
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* antes era más alto */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  /*color: #333;*/
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(120deg, #e0f2ff, #ffffff);
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+/* Limitar tamaño de la foto */
+.hero-image img {
+  width: 280px; /* un poco más pequeño que antes */
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 4px solid white;
+}
+
+/* Botones de contacto usan misma clase .btn que CV */
+.hero-text .buttons .btn {
+  margin-right: 1rem; /* separación entre botones */
+  margin-top: 0.5rem; /* margen superior */
+}
+
+.hero-text {
+  max-width: 500px;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #005ea6;
+  transform: translateY(-2px);
+}
+
+/* SECCIONES */
+.section {
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* SOBRE MÍ 
+#sobre-mi p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #444;
+}
+*/
+/* SECCIÓN HABILIDADES */
+/* GRID CONTENEDOR */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* COLUMNA */
+.skills-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #1e88e5; /* color uniforme para títulos */
+  text-align: center;
+}
+
+/* LISTA DE HABILIDADES COMO CHIPS */
+.skills-column ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(140px, 1fr)
+  ); /* ancho mínimo más amplio */
+  gap: 0.5rem;
+}
+
+.skills-column li {
+  background: #f4f4f4;
+  padding: 0.5rem 0.8rem;
+  border-radius: 9999px;
+  text-align: center;
+  font-weight: 500;
+  cursor: default;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  word-wrap: break-word; /* permite que el texto largo se divida en varias líneas */
+  overflow-wrap: break-word; /* compatibilidad */
+}
+
+/* Hover suave */
+.skills-column li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: #64b5f6;
+  color: white;
+}
+
+/* TOOLTIP */
+.skills-column li[title] {
+  cursor: help;
+}
+
+.skills-column li[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+/* Línea divisoria vertical */
+.skills-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%; /* divide las dos columnas */
+  width: 1px; /* grosor de la línea */
+  background-color: #ddd; /* color sutil */
+  transform: translateX(-50%);
+}
+
+/* Para asegurar que el grid tenga padding y la línea no choque */
+.skills-container .skills-column {
+  padding: 0 1rem;
+}
+
+/* SECCIÓN LIBROS */
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.book-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.book-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  transform: translateY(-4px);
+}
+
+.book-card h4 {
+  margin: 0 0 0.3rem 0;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+.book-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Estados de libros minimalistas */
+.book-status {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #555;
+}
+
+.book-status a {
+  text-decoration: none;
+  color: #1e88e5; /* link azul suave */
+  margin-left: 0.3rem;
+}
+
+.book-status a:hover {
+  text-decoration: underline;
+}
+
+/* PROYECTOS */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  transform: translateY(-4px);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER 
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-card);
+  margin-top: 4rem;
+}
+*/
+/*Markdown */
+.prose {
+  line-height: 1.7;
+}
+.prose h1,
+.prose h2,
+.prose h3 {
+  color: #1f2937; /* gris oscuro */
+  margin-top: 1.5em;
+}
+.prose img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  border-radius: 0.75rem; /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra suave */
+}
+.prose pre {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+#modal-content {
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+#modal-content h1,
+#modal-content h2 {
+  font-weight: 600;
+  margin-top: 1.2rem;
+}
+
+#modal-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem; /* margen izquierdo */
+}
+
+#modal-content li {
+  margin-bottom: 0.25rem; /* separación entre ítems */
+}
